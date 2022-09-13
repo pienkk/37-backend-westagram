@@ -25,7 +25,9 @@ const signIn = async ( email, password ) => {
     );
     const checkPassword = await checkHash(password, user.password);
     if(!checkPassword) {
-        return "error"
+        const err = new Error(`Invalid User`);
+        err.statusCode = 400;
+        throw err;
     }
     const userId = {
         user_id : user.id

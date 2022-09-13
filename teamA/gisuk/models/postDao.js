@@ -54,7 +54,7 @@ const postEdit = async ( postId, title, content, userId ) => {
                 posts.title as postingTitle,
                 posts.content as postingContent
             FROM posts INNER JOIN users on users.id = posts.user_id 
-            WHERE posts.id like ${postId};`,
+            WHERE posts.id like ${postId}`,
         );
     } catch (err) {
         const error = new Error(`INVALID_DATA_INPUT`);
